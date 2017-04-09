@@ -3,7 +3,7 @@
   * @file    main.c
   * @author  Wieczorek Jarosław & Norel Mateusz
   * @version V1.0
-  * @date    01-December-2013
+  * @date    03-march-2017
   * @brief   Default main function.
   ******************************************************************************
 */
