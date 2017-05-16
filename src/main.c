@@ -72,8 +72,19 @@ int main(void)
 	GPIO_SetBits(GPIOD, GPIO_Pin_4);
 
 
-	 SPI_I2S_SendData(SPI3, Data);
-	 SPI_I2S_GetFlagStatus(SPI3, SPI_I2S_FLAG_TXE);
+	SPI_I2S_SendData(SPI3, Data);
+	SPI_I2S_GetFlagStatus(SPI3, SPI_I2S_FLAG_TXE);
+
+	GPIO_InitTypeDef leds;
+	leds.GPIO_Pin = GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15;
+	leds.GPIO_Mode = GPIO_Mode_OUT;
+	leds.GPIO_OType = GPIO_OType_PP;
+	leds.GPIO_PuPd = GPIO_PuPd_UP;
+	leds.GPIO_Speed = GPIO_Speed_100MHz;
+
+	GPIO_Init(GPIOD, &leds);
+
+	GPIO_SetBits(GPIOD, leds.GPIO_Pin);
 
 	for(;;);
 }
